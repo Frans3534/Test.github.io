@@ -1,0 +1,84 @@
+
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Magic 8 Ball</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    #answer {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    
+    .shake-animation {
+      animation: shake 0.8s ease-in-out;
+    }
+    
+    @keyframes shake {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(-10deg);
+      }
+      75% {
+        transform: rotate(10deg);
+      }
+    }
+  </style>
+  <script>
+    function shakeBall() {
+      var answers = [
+        "It is certain",
+        "It is decidedly so",
+        "Without a doubt",
+        "Yes - definitely",
+        "You may rely on it",
+        "As I see it, yes",
+        "Most likely",
+        "Outlook good",
+        "Signs point to yes",
+        "Reply hazy, try again",
+        "Ask again later",
+        "Better not tell you now",
+        "Cannot predict now",
+        "Concentrate and ask again",
+        "Don't count on it",
+        "My reply is no",
+        "My sources say no",
+        "Outlook not so good",
+        "Very doubtful"
+      ];
+      
+      var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+      var answerElement = document.getElementById("answer");
+      
+      answerElement.textContent = randomAnswer;
+      answerElement.classList.add("shake-animation");
+      
+      setTimeout(function() {
+        answerElement.classList.remove("shake-animation");
+      }, 800);
+    }
+  </script>
+</head>
+<body>
+  <h1>Ask the Magic 8 Ball</h1>
+  <button onclick="shakeBall()">Shake</button>
+  <div id="answer"></div>
+</body>
+</html>
+```
+
